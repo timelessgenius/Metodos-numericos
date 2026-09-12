@@ -4,7 +4,7 @@ def calculateLowerTriangularSystem(matriz,vetor):
     for i in range(n): 
         soma = 0
         for j in range(n):
-            soma+= L[i][j]*ans[j]
+            soma += L[i][j]*ans[j]
         ans[i] = (b[i] - soma)/L[i][i]
     return ans
 
