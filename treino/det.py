@@ -42,16 +42,17 @@ def solveDeterminante(m,n):
             det = det + signal*element*solveDeterminante(submatrix,len(submatrix))
         return det
 
-n = int(input("Digite o tamanho da matriz (n): "))
+if __name__ == "__main__": # essa condicional implica que esse código "main" só será executado se eu executar o arquivo det.py diretamente
+    n = int(input("Digite o tamanho da matriz (n): "))
 
-m = matrixGenerate(n)
-for i in range(n):
-    for j in range(n):
-        m[i][j] = float(input(f"Elemento [{i}][{j}]: ")) 
+    m = matrixGenerate(n)
+    for i in range(n):
+        for j in range(n):
+            m[i][j] = float(input(f"Elemento [{i}][{j}]: ")) 
 
-resultado = solveDeterminante(m,n)
-print(m)
-print("Determinante:", resultado)
+    resultado = solveDeterminante(m,n)
+    print(m)
+    print("Determinante:", resultado)
 
 
 
