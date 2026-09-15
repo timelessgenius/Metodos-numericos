@@ -13,12 +13,15 @@ def calculateUpperTriangularSystem(matriz,vetor):
         ans[i] = (b[i]- soma)/U[i][i]
     return ans
 
-det = solveDeterminante(U,len(U))
 
-if det != 0:
-    print("O determinante dessa matriz é:", det)
-    print(calculateUpperTriangularSystem(U,b))
-else:
-    print("Essa matriz não possui solução única")
+if __name__ == "__main__": # essa condicional implica que esse código "main" só será executado se eu executar o arquivo det.py diretamente
+
+    det = solveDeterminante(U,len(U))
+
+    if det != 0:
+        print("O determinante dessa matriz é:", det)
+        print(calculateUpperTriangularSystem(U,b))
+    else:
+        print("Essa matriz não possui solução única")
 
 

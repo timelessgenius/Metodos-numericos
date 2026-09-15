@@ -10,13 +10,16 @@ def calculateLowerTriangularSystem(matriz,vetor):
         ans[i] = (b[i] - soma)/L[i][i]
     return ans
 
-# n = 4 # tamanho da matriz nxn
-L = [[2,0,0,0],[4,3,0,0],[1,2,5,0],[3,1,2,4]] # Matriz nxn
-b = [4,23,19,29] # os valores do meu vetor b
-det = solveDeterminante(L, len(L))
 
-if solveDeterminante(L,len(L) != 0):
-    print("A determinante é:", det)
-    print(calculateLowerTriangularSystem(L,b))
-else:
-    print("Esse sistema não possui uma solução única!")
+if __name__ == "__main__": # essa condicional implica que esse código "main" só será executado se eu executar o arquivo det.py diretamente
+
+    # n = 4 # tamanho da matriz nxn
+    L = [[2,0,0,0],[4,3,0,0],[1,2,5,0],[3,1,2,4]] # Matriz nxn
+    b = [4,23,19,29] # os valores do meu vetor b
+    det = solveDeterminante(L, len(L))
+
+    if solveDeterminante(L,len(L) != 0):
+        print("A determinante é:", det)
+        print(calculateLowerTriangularSystem(L,b))
+    else:
+        print("Esse sistema não possui uma solução única!")
