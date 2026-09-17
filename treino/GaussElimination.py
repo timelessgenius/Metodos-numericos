@@ -39,8 +39,8 @@ def eliminacaoDeGauss(matriz, vetor):
     return ans
 
 
-A = [[1,0,1],[1,1,0],[2,3,1]]
-b = [0,1,1]
+A = [[2,2,-1],[3,3,1],[1,-1,5]]
+b = [3,7,5]
 
 resposta = eliminacaoDeGauss(A,b)
 
