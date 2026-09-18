@@ -23,7 +23,7 @@ def subMatrixGenerate(m,delete_row, delete_column):
 
 def solveDeterminante(m,n):
     if n == 1:
-        return m[n][n]
+        return m[0][0]
     elif n == 2:
         return m[0][0]*m[1][1] - m[0][1]*m[1][0]
     else:
