@@ -35,16 +35,17 @@ def LU_Decomposition(m):
 
 # Main
 
-n = 4
+if __name__ == "__main__": # essa condicional implica que esse código "main" só será executado se eu executar o arquivo det.py diretamente
 
-m = matrixGenerate(n)
+    n = 4
 
-ReadValuesToMatriz(m)
+    m = matrixGenerate(n)
 
-U,L = LU_Decomposition(m)
+    ReadValuesToMatriz(m)
 
-print(U)
-print("\n") 
-print(L)
+    U,L = LU_Decomposition(m)
 
-# print(m)
+    print(U)
+    print("\n") 
+    print(L)
+
