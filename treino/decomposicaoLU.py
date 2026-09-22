@@ -26,7 +26,7 @@ def decomposicao_lu(A):
                 for k in range(i):
                     L[i][k], L[indice_pivo][k] = L[indice_pivo][k], L[i][k]
 
-        if U[n-1][n-1] == 0:
+        if U[i][i] == 0:
             raise ZeroDivisionError("Pivô nulo encontrado. O sistema é singular.")
 
         # 3. Eliminação Gaussiana (Substitui as operações vetorizadas)
