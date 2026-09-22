@@ -76,7 +76,7 @@ def eliminacaoDeGaussPivotamentoTotal(matriz, vetor):
             m[maior_linha] = temp
 
         if maior_coluna != i: # Trocando colunas...
-            for linha in m:
+            for linha in range(len(m)):
                 temp = linha[i]
                 linha[i] = linha[maior_coluna]
                 linha[maior_coluna] = temp
