@@ -1,4 +1,4 @@
-from det import solveDeterminante
+from treino.parte1.det import solveDeterminante
 
 def calculateLowerTriangularSystem(matriz,vetor):
     n = len(matriz)

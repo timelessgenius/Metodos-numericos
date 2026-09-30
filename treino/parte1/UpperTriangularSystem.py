@@ -1,4 +1,4 @@
-from det import solveDeterminante
+from treino.parte1.det import solveDeterminante
 
 def calculateUpperTriangularSystem(matriz,vetor):
     tamanho = len(matriz)

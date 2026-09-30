@@ -1,4 +1,4 @@
-from det import matrixGenerate
+from treino.parte1.det import matrixGenerate
 
 def JacobiVerification(matriz):
     n = len(matriz)
