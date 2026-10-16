@@ -4,8 +4,7 @@ import sympy as sp
 def coef(xs, ys):
     n = len(xs)
 
-    # No começo (ordem 0) meu f[xi] = f(xi), ou seja, f[xi] = y[i]
-    c = np.array(ys,dtype=float) # Criando o meu array dos coeficientes.
+    c = np.array(ys,dtype=float)
 
     for i in range(1,n):
         for j in range(n-1,i-1,-1):
