@@ -66,18 +66,18 @@ print(p)
 
 print("\n")
 
-p2 = p
+p_antigo = p
 
 p,xs,ys = acrescentarponto(p,2,-0.42,xs,ys)
 
 print(p)
 
     
-f2 = sp.lambdify(x, p2, 'numpy')
+f2 = sp.lambdify(x, p_antigo, 'numpy')
 f3 = sp.lambdify(x, p, 'numpy')
 xi = np.linspace(min(xs) - 0.5, max(xs) + 0.5, 400)
 
-plt.plot(xi, f2(xi) * np.ones_like(xi), color='#2a78d6', linewidth=2, label=f'Antes: {p2}')
+plt.plot(xi, f2(xi) * np.ones_like(xi), color='#2a78d6', linewidth=2, label=f'Antes: {p_antigo}')
 plt.plot(xi, f3(xi) * np.ones_like(xi), color='#eb6834', linewidth=2, label=f'Com ponto novo: {p}')
 plt.scatter(xs[:-1], ys[:-1], s=60, color='black', edgecolor='white', linewidth=2, zorder=5, label='Pontos iniciais')
 plt.scatter(xs[-1:], ys[-1:], s=60, color='#eb6834', edgecolor='white', linewidth=2, zorder=5, label='Ponto acrescentado')
