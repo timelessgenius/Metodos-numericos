@@ -1,6 +1,7 @@
 import numpy as np
 from math import *
 import sympy as sp
+import matplotlib.pyplot as plt
 
 A = [-1,0,1]
 B = [0.54,1,0.54]
@@ -18,9 +19,26 @@ for i in range(len(m)):
         else:
             m[i][j] = pow(A[i],j)
 
-A = np.linalg.solve(m,B)
+aux = np.linalg.solve(m,B)
 
 for i in range(len(m)):
-    polinomio+=A[i]*x**i
+    polinomio+=aux[i]*x**i
 
-print(sp.expand(polinomio))
+polinomio = sp.expand(polinomio)
+
+print(polinomio)
+
+xs = [-1,0,1]
+ys = [0.54,1,0.54]
+
+f = sp.lambdify(x, polinomio, 'numpy')
+xi = np.linspace(min(A) - 0.5, max(A) + 0.5, 400)
+
+plt.plot(xi, f(xi) * np.ones_like(xi), color='#2a78d6', linewidth=2, label=f'P(x) = {polinomio}')
+plt.scatter(A, B, s=60, color='black', edgecolor='white', linewidth=2, zorder=5, label='Pontos dados')
+plt.title('Método de Vandermonde', loc='left', fontweight='bold')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.grid(color='#e6e5e0')
+plt.legend(frameon=False)
+plt.show()

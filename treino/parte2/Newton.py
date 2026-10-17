@@ -1,5 +1,6 @@
 import numpy as np
 import sympy as sp
+import matplotlib.pyplot as plt
 
 def coef(xs, ys):
     n = len(xs)
@@ -55,7 +56,6 @@ def produtorio_aux(xs):
     return prod    
     
 
-
 x = sp.symbols('x')
 xs = [-1,0,1]
 ys = [0.54,1,0.54]
@@ -66,6 +66,24 @@ print(p)
 
 print("\n")
 
+p2 = p
+
 p,xs,ys = acrescentarponto(p,2,-0.42,xs,ys)
 
 print(p)
+
+    
+f2 = sp.lambdify(x, p2, 'numpy')
+f3 = sp.lambdify(x, p, 'numpy')
+xi = np.linspace(min(xs) - 0.5, max(xs) + 0.5, 400)
+
+plt.plot(xi, f2(xi) * np.ones_like(xi), color='#2a78d6', linewidth=2, label=f'Antes: {p2}')
+plt.plot(xi, f3(xi) * np.ones_like(xi), color='#eb6834', linewidth=2, label=f'Com ponto novo: {p}')
+plt.scatter(xs[:-1], ys[:-1], s=60, color='black', edgecolor='white', linewidth=2, zorder=5, label='Pontos iniciais')
+plt.scatter(xs[-1:], ys[-1:], s=60, color='#eb6834', edgecolor='white', linewidth=2, zorder=5, label='Ponto acrescentado')
+plt.title('Método de Newton', loc='left', fontweight='bold')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.grid(color='#e6e5e0')
+plt.legend(frameon=False, fontsize=8)
+plt.show()
