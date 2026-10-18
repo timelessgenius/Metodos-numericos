@@ -71,7 +71,7 @@ def mqDiscreto(xs,ys,f_x):
         polinomio+= ans[i]* f_x[i]
 
     # print(sp.expand(polinomio))
-    return sp.nsimplify(polinomio) 
+    return polinomio
 
 def mqContinuo(f,f_x,a,b):
     n = len(f_x) 
@@ -100,27 +100,27 @@ def mqContinuo(f,f_x,a,b):
         polinomio+= ans[i]* f_x[i]
 
     # print(sp.expand(polinomio))
-    return sp.nsimplify(polinomio) 
+    return polinomio
 
-xs = [-1,0,1,2]
-ys = [0,-1,0,7]
+xs = [0,1,2,3,4,5,6]
+ys = [1.1,3.9,5.2,3.3,0.5,-1.2,0.1]
 x = sp.symbols('x')
-f_x = [1,x,x**2] 
-f = x**4-5*x
+f_x = [1,sp.sin(x),sp.cos(x)]
+f = x**2
 
 p = mqDiscreto(xs,ys,f_x)
 p2 = mqContinuo(f,f_x,-1,1)
 
-print(p)
-print(p2)
 
+
+#Gráfico
 g1 = sp.lambdify(x, p, 'numpy')
 g2 = sp.lambdify(x, p2, 'numpy')
 f_num = sp.lambdify(x, f, 'numpy')
 
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11, 4.5))
 xi = np.linspace(min(xs) - 0.5, max(xs) + 0.5, 400)
-ax1.plot(xi, g1(xi) * np.ones_like(xi), color='#2a78d6', linewidth=2, label=f'g(x) = {p}')
+ax1.plot(xi, g1(xi) * np.ones_like(xi), color='#2a78d6', linewidth=2, label=f'g(x) = {sp.N(p,4)}')
 ax1.scatter(xs, ys, s=60, color='black', edgecolor='white', linewidth=2, zorder=5, label='Pontos da tabela')
 ax1.set_title('Mínimos Quadrados: caso discreto', loc='left', fontweight='bold')
 ax1.set_xlabel('x')
@@ -130,7 +130,7 @@ ax1.legend(frameon=False, fontsize=8)
 
 xc = np.linspace(-1, 1, 400)
 ax2.plot(xc, f_num(xc), color='#2a78d6', linewidth=2, label=f'f(x) = {f}')
-ax2.plot(xc, g2(xc) * np.ones_like(xc), color='#eb6834', linewidth=2, label=f'g(x) = {p2}')
+ax2.plot(xc, g2(xc) * np.ones_like(xc), color='#eb6834', linewidth=2, label=f'g(x) = {sp.N(p2,4)}')
 ax2.set_title('Mínimos Quadrados: caso contínuo', loc='left', fontweight='bold')
 ax2.set_xlabel('x')
 ax2.set_ylabel('y')
