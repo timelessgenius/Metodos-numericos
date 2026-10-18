@@ -30,7 +30,7 @@ def interpolar(xs,ys,z):
 
 
 def acrescentarponto(polinomio, novo_xs, novo_ys, xs,ys):
-
+    # P_n+1 = P_n + prod*f[x0...xn]
     prod = produtorio_aux(xs)
 
     xs = np.append(xs,novo_xs)

@@ -28,9 +28,6 @@ polinomio = sp.expand(polinomio)
 
 print(polinomio)
 
-xs = [-1,0,1]
-ys = [0.54,1,0.54]
-
 f = sp.lambdify(x, polinomio, 'numpy')
 xi = np.linspace(min(A) - 0.5, max(A) + 0.5, 400)
 
