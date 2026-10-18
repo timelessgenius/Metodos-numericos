@@ -28,6 +28,8 @@ polinomio = sp.expand(polinomio)
 
 print(polinomio)
 
+
+#Gráfico
 f = sp.lambdify(x, polinomio, 'numpy')
 xi = np.linspace(min(A) - 0.5, max(A) + 0.5, 400)
 

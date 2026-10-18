@@ -26,6 +26,7 @@ p = sp.expand(Lagrange(x,y,n,polinomio))
 
 print(p)
 
+#Gráfico
 f = sp.lambdify(sp.symbols('x'), p, 'numpy')
 xi = np.linspace(min(x) - 0.5, max(x) + 0.5, 400)
 

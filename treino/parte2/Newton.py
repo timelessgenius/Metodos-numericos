@@ -72,7 +72,8 @@ p,xs,ys = acrescentarponto(p,2,-0.42,xs,ys)
 
 print(p)
 
-    
+
+#Gráfico    
 f2 = sp.lambdify(x, p_antigo, 'numpy')
 f3 = sp.lambdify(x, p, 'numpy')
 xi = np.linspace(min(xs) - 0.5, max(xs) + 0.5, 400)

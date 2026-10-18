@@ -20,7 +20,7 @@ polinomio = sp.expand(polinomio)
 print(polinomio)
 
 
-
+#Gráfico
 f = sp.lambdify(x, y, 'numpy')
 p = sp.lambdify(x, polinomio, 'numpy')
 xi = np.linspace(x_0 - 2, x_0 + 2, 400)
