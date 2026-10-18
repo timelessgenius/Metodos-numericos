@@ -82,7 +82,7 @@ def mqContinuo(f,f_x,a,b):
 
     B = np.zeros(n)
 
-    for i in range(len(f_x)):
+    for i in range(n):
         B[i] = prod_internoC(f_x[i],f,x,a,b)
 
     # print("\n")
