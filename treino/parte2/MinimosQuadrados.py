@@ -21,12 +21,12 @@ def matriz_prodInternoD(phis):
             mat[i][j] = prod_internoD(phis[i],phis[j])
     return mat
 
-def matriz_prodInternoC(phis,x,a,b):
+def matriz_prodInternoC(phis,variavel,limite_inferior,limite_superior):
     tam = len(phis)
     mat = np.zeros((tam,tam))
     for i in range(tam):
         for j in range(tam):
-            mat[i][j] = prod_internoC(phis[i],phis[j],x,a,b)
+            mat[i][j] = prod_internoC(phis[i],phis[j],variavel,limite_inferior,limite_superior)
     return mat
 
 def mqDiscreto(xs,ys,f_x):
@@ -110,8 +110,6 @@ f = x**2
 
 p = mqDiscreto(xs,ys,f_x)
 p2 = mqContinuo(f,f_x,-1,1)
-
-
 
 #Gráfico
 g1 = sp.lambdify(x, p, 'numpy')
